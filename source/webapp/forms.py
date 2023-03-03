@@ -2,12 +2,14 @@ from django import forms
 from django.forms import widgets
 from django.core.exceptions import ValidationError
 from webapp.models import Task
+from datetime import datetime
 
 
 class TaskForm(forms.ModelForm):
     class Meta:
         model = Task
-        fields = {'title', 'description', 'status', 'task_types', 'completion_date'}
+        fields = {'title', 'description', 'status',
+                  'task_types', 'completion_date'}
         labels = {
             'title': 'Заголовок',
             'description': 'Описание',
