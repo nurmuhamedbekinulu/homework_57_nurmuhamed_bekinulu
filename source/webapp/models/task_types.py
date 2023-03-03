@@ -1,12 +1,12 @@
 from django.db import models
 
 
-class Status(models.Model):
+class Task_type(models.Model):
     name = models.CharField(
         max_length=200,
         null=False,
         blank=False,
-        verbose_name="Статус"
+        verbose_name="Тип задачи"
         )
     created_at = models.DateTimeField(
         auto_now_add=True,

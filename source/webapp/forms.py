@@ -7,11 +7,12 @@ from webapp.models import Task
 class TaskForm(forms.ModelForm):
     class Meta:
         model = Task
-        fields = {'title', 'description', 'status', 'completion_date'}
+        fields = {'title', 'description', 'status', 'task_types', 'completion_date'}
         labels = {
             'title': 'Заголовок',
             'description': 'Описание',
             'status': 'Статус',
+            'task_types': 'Тип задачи',
             'completion_date': 'Выполнить до'
         }
 
@@ -19,4 +20,10 @@ class TaskForm(forms.ModelForm):
         title = self.cleaned_data.get('title')
         if len(title) < 2:
             raise ValidationError('Заголовок должен быть длиннее 2 символов')
+        return title
+
+    def clean_description(self):
+        title = self.cleaned_data.get('description')
+        if len(title) < 2:
+            raise ValidationError('Описание должено быть длиннее 2 символов')
         return title
