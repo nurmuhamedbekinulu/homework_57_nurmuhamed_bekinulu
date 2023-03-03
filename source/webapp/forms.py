@@ -12,7 +12,7 @@ class TaskForm(forms.ModelForm):
             'title': 'Заголовок',
             'description': 'Описание',
             'status': 'Статус',
-            'completion_date': 'Выполнить до"'
+            'completion_date': 'Выполнить до'
         }
 
     def clean_title(self):
